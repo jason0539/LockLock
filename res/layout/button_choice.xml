@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <jason.sdk.view.reveal.JasonBreathTextView
+        android:id="@+id/tv_choice_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="还未选择防盗模式"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical" >
+
+        <jason.sdk.view.reveal.JasonRevealButton
+            android:id="@+id/bn_choice_ac"
+            style="@style/jason_style_common_bn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="电源线防盗" />
+
+        <Button
+            android:id="@+id/bn_choice_headset"
+            style="@style/jason_style_common_bn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="耳机线防盗" />
+
+        <Button
+            android:id="@+id/bn_choice_none"
+            style="@style/jason_style_common_bn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:text="停止防盗锁" />
+    </LinearLayout>
+
+</FrameLayout>
