@@ -1,7 +1,7 @@
 package jason.locklock.listener;
 
 import jason.locklock.manager.AlarmManager;
-import jason.sdk.utils.JasonLog;
+import jason.locklock.utils.JasonLog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

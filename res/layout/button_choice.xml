@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <jason.sdk.view.reveal.JasonBreathTextView
+    <jason.locklock.view.JasonBreathTextView
         android:id="@+id/tv_choice_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
         android:layout_gravity="bottom"
         android:orientation="vertical" >
 
-        <jason.sdk.view.reveal.JasonRevealButton
+        <jason.locklock.view.JasonRevealButton
             android:id="@+id/bn_choice_ac"
             style="@style/jason_style_common_bn"
             android:layout_width="match_parent"

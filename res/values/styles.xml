@@ -26,8 +26,4 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="jason_style_common_bn">
-        <item name="android:background">@drawable/jason_selector_common_button</item>
-    </style>
-
 </resources>

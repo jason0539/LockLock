@@ -1,7 +1,7 @@
 package jason.locklock;
 
 import jason.locklock.listener.ProtectListener;
-import jason.sdk.dialog.JasonDialog;
+import jason.locklock.view.JasonDialog;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,7 +44,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		if (item.getTitle().equals("关于")) {
 			new JasonDialog(MainActivity.this).setTitle("关于")
 					.setMessage("\n" + "版本:1.0" + "\n" + "作者:jason0539"+ "\n")

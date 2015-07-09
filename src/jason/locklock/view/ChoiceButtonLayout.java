@@ -5,7 +5,6 @@ import jason.locklock.listener.ProtectListener;
 import jason.locklock.listener.ProtectListener.LockWay;
 import jason.locklock.manager.AlarmManager;
 import jason.locklock.manager.VoiceManager;
-import jason.sdk.view.reveal.JasonBreathTextView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

@@ -1,0 +1,58 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- ===================== -->
+    <!-- jasonsdk style custom -->
+    <!-- ===================== -->
+    <!-- 全局通用button样式 -->
+    <style name="jason_style_common_bn">
+        <item name="android:background">@drawable/jason_selector_common_button</item>
+    </style>
+    <!-- 对话框button样式 -->
+    <style name="jason_style_dialog_bn">
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/jason_bg_common_green</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 对话框标题样式 -->
+    <style name="jason_style_dialog_title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/jason_bg_common_green</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">#eee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 对话框内容样式 -->
+    <style name="jason_style_dialog_content">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <!-- 对话框垂直分割线 -->
+
+    <style name="jason_style_dialog_line_vertical">
+        <item name="android:background">@color/jason_bg_common_green</item>
+    </style>
+    <!-- 对话框水平分割线 -->
+    <style name="jason_style_dialog_line_horizontal">
+        <item name="android:background">@color/jason_bg_common_green</item>
+    </style>
+
+</resources>

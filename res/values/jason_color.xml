@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 越混颜色越浅 -->
+    <color name="jason_bg_common_green">#77AA77</color>
+    <color name="jason_bg_common_green_light">#a7dAa7</color>
+
+</resources>
