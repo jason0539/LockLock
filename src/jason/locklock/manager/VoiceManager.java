@@ -57,14 +57,14 @@ public class VoiceManager {
 	/**
 	 * 是否正在播放警报
 	 */
-	public boolean isAlarm() {
+	public boolean isAlarming() {
 		return isAlarm;
 	}
 
 	/**
 	 * 耳机是否插入
 	 */
-	public boolean isHeadSetOn() {
+	public boolean isHeadSetConnected() {
 		return audioManager.isWiredHeadsetOn();
 	}
 

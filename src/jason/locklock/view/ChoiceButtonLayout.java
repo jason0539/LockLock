@@ -1,9 +1,8 @@
 package jason.locklock.view;
 
 import jason.locklock.R;
-import jason.locklock.listener.ProtectListener;
-import jason.locklock.listener.ProtectListener.LockWay;
 import jason.locklock.manager.AlarmManager;
+import jason.locklock.manager.AlarmManager.AlarmWay;
 import jason.locklock.manager.VoiceManager;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,11 +12,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+/**
+ * @author jason0539
+ */
 public class ChoiceButtonLayout extends LinearLayout {
 	private JasonBreathTextView tv_state;
-	private Button bn_ac;
-	private Button bn_headset;
-	private Button bn_none;
+	private Button btn_acAlarm;
+	private Button btn_headsetAlarm;
+	private Button btn_stopAlarm;
 	private Context mContext;
 
 	public ChoiceButtonLayout(Context context) {
@@ -31,12 +33,12 @@ public class ChoiceButtonLayout extends LinearLayout {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.button_choice, this);// 后面不用this则无法find里面的view
 		tv_state = (JasonBreathTextView) findViewById(R.id.tv_choice_state);
-		bn_ac = (Button) findViewById(R.id.bn_choice_ac);
-		bn_headset = (Button) findViewById(R.id.bn_choice_headset);
-		bn_none = (Button) findViewById(R.id.bn_choice_none);
-		bn_ac.setOnClickListener(getOnClickLis());
-		bn_headset.setOnClickListener(getOnClickLis());
-		bn_none.setOnClickListener(getOnClickLis());
+		btn_acAlarm = (Button) findViewById(R.id.bn_choice_ac);
+		btn_headsetAlarm = (Button) findViewById(R.id.bn_choice_headset);
+		btn_stopAlarm = (Button) findViewById(R.id.bn_choice_stop);
+		btn_acAlarm.setOnClickListener(getOnClickLis());
+		btn_headsetAlarm.setOnClickListener(getOnClickLis());
+		btn_stopAlarm.setOnClickListener(getOnClickLis());
 	}
 
 	private OnClickListener getOnClickLis() {
@@ -47,13 +49,12 @@ public class ChoiceButtonLayout extends LinearLayout {
 			public void onClick(View arg0) {
 				switch (arg0.getId()) {
 				case R.id.bn_choice_ac:
-					if (VoiceManager.getInstance().isAlarm()) {
-						// 正在报警按键无效
+					if (VoiceManager.getInstance().isAlarming()) {
 						return;
 					}
-					if (ProtectListener.getInstance().isAcOrUsbConnect()) {
-						ProtectListener.getInstance().setProtectWay(
-								LockWay.AcOrUsb);
+					if (AlarmManager.getInstance().isAcOrUsbConnected()) {
+						AlarmManager.getInstance().setProtectWay(
+								AlarmWay.AcOrUsb);
 						tv_state.setText("正在使用电源线防盗");
 						tv_state.startReveal();
 					} else {
@@ -62,13 +63,12 @@ public class ChoiceButtonLayout extends LinearLayout {
 					}
 					break;
 				case R.id.bn_choice_headset:
-					if (VoiceManager.getInstance().isAlarm()) {
-						// 正在报警按键无效
+					if (VoiceManager.getInstance().isAlarming()) {
 						return;
 					}
-					if (VoiceManager.getInstance().isHeadSetOn()) {
-						ProtectListener.getInstance().setProtectWay(
-								LockWay.HeadSet);
+					if (VoiceManager.getInstance().isHeadSetConnected()) {
+						AlarmManager.getInstance().setProtectWay(
+								AlarmWay.HeadSet);
 						tv_state.setText("正在使用耳机线防盗");
 						tv_state.startReveal();
 					} else {
@@ -76,10 +76,10 @@ public class ChoiceButtonLayout extends LinearLayout {
 								Toast.LENGTH_SHORT).show();
 					}
 					break;
-				case R.id.bn_choice_none:
-					AlarmManager.getInstance().acOrUsbIn();
-					AlarmManager.getInstance().headSetIn();
-					ProtectListener.getInstance().setProtectWay(LockWay.None);
+				case R.id.bn_choice_stop:
+					AlarmManager.getInstance().setAcOrUsbConnected();
+					AlarmManager.getInstance().setHeadSetConnected();
+					AlarmManager.getInstance().setProtectWay(AlarmWay.Stop);
 					tv_state.setText("已经停止防盗设置");
 					tv_state.stopReveal();
 					break;

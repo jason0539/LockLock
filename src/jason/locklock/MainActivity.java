@@ -1,6 +1,6 @@
 package jason.locklock;
 
-import jason.locklock.listener.ProtectListener;
+import jason.locklock.manager.AlarmManager;
 import jason.locklock.view.JasonDialog;
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,42 +19,42 @@ public class MainActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		dialog = new JasonDialog(this);
-		ProtectListener.getInstance().init(this);
+		AlarmManager.getInstance().init(this);
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		dialog.dismiss();
-		ProtectListener.getInstance().unInit();
+		AlarmManager.getInstance().unInit();
 	}
 
 	@Override
 	public void onBackPressed() {
-		dialog.setTitle("退出应用").setMessage("如果退出应用，将不再进行防盗监控，建议通过home键将应用放到后台")
-				.setRightText("退出")
-				.setRightOnClickListener(new OnClickListener() {
+		dialog.setTitle("退出应用").setContentText("如果退出应用，将不再进行防盗监控，建议通过home键将应用放到后台")
+				.setRightButtonText("退出")
+				.setRightButtonOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						MainActivity.this.finish();
 					}
-				}).setCancleAble(false).show();
+				}).setCancelable(false).show();
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getTitle().equals("关于")) {
 			new JasonDialog(MainActivity.this).setTitle("关于")
-					.setMessage("\n" + "版本:1.0" + "\n" + "作者:jason0539"+ "\n")
-					.setLeftVisible(false).show();
+					.setContentText("\n" + "版本:1.0" + "\n" + "作者:jason0539"+ "\n")
+					.setLeftButtonVisibility(false).show();
 		} else if (item.getTitle().equals("说明")) {
 			new JasonDialog(MainActivity.this)
 					.setTitle("说明")
-					.setMessage(
+					.setContentText(
 							"\n" + "电源线:插入USB线,直流电或者usb供电,只要断电就会报警。" + "\n"
 									+ "\n" + "耳机线:插入耳机，耳机拔出报警"+ "\n")
-					.setLeftVisible(false).show();
+					.setLeftButtonVisibility(false).show();
 		}
 		return super.onOptionsItemSelected(item);
 	}

@@ -35,7 +35,7 @@
             android:text="耳机线防盗" />
 
         <Button
-            android:id="@+id/bn_choice_none"
+            android:id="@+id/bn_choice_stop"
             style="@style/jason_style_common_bn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
